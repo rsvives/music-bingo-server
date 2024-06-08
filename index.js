@@ -1,15 +1,13 @@
 const {divide, bingoNumbersObject, suffleArray} = require('./bingoNumbers')
 const {tracks} = require('./playlist.json')
-import { createServer } from "http"
-import { Server } from "socket.io";
 
-const httpServer = createServer();
-const io = new Server(httpServer, {
-  cors: {
-   origin:["http://localhost:5173", "https://music-bingo.vercel.app/"],
-  }
-});
+const io = require('socket.io')(3000,{
+    cors:{
+        origin:["http://localhost:5173", "https://music-bingo.vercel.app/"],
 
+
+    }
+})
 // console.log(bingoNumbers(2,3,))
 io.use((socket,next)=>{
     const token = socket.handshake.auth.token
