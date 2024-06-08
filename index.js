@@ -3,7 +3,7 @@ const {tracks} = require('./playlist.json')
 
 const io = require('socket.io')(3000,{
     cors:{
-        origin:["http://localhost:5173", "https://music-bingo.vercel.app/"],
+        origin:["http://localhost:5173", "https://music-bingo.vercel.app/(.*)","https://music-bingo.vercel.app"],
         credentials: true
     }
 })
